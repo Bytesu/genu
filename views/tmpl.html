@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1200">
+    <% include ./components/meta.html %>
+    <% include ./script/bootstrap.html %>
+    <% include ./script/jquery.tmpl.html %>
+    <% include ./script/_G_.html %>
+    <title>首页</title>
+</head>
+<body>
+<%if(typeof(LOGIN) == 'undefined'){ %>
+<!--<nav class="navbar navbar-inverse navbar-static-top">-->
+    <!--<a class="navbar-brand" href="#">学院派后台管理</a>-->
+    <!--<ul class="nav nav-pills">-->
+        <!--<li class="nav-item active">-->
+            <!--<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
+        <!--</li>-->
+        <!--<li class="nav-item">-->
+            <!--<a class="nav-link" href="#">About</a>-->
+        <!--</li>-->
+        <!--<li class="nav-item">-->
+            <!--<a class="nav-link" href="#">Contact</a>-->
+        <!--</li>-->
+    <!--</ul>-->
+<!--</nav>-->
+<% include ./components/nav.html %>
+
+<br/>
+<br/>
+<%}%>
+
+<%if(typeof(LOGIN) == 'undefined'){ %>
+    <%-body -%>
+<%}else{%>
+    <%-body -%>
+<%}%>
+<%if(typeof(LOGIN) == 'undefined'){ %>
+<footer class="footer ">
+    <div class="container">
+
+        <hr>
+        <div class="row footer-bottom">
+            <ul class="list-inline text-center">
+                <li>2015-09-07</li>
+                <li>Manager版权所有</li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<%} %>
+
+</body>
+</html>
