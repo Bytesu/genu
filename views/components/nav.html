@@ -3,20 +3,20 @@
         border-color: #FFF;
     }
     .navbar-inverse {
-        background-image: linear-gradient(to bottom,#018865 0,#018865 100%);
+        background-image: linear-gradient(to bottom,#2dbe60 0,#2dbe60 100%);
         background-repeat: repeat-x;
     }
     .navbar-inverse .navbar-nav>li>a{
         color: #fff;
     }
     .navbar-inverse {
-        background-color: #018865;
+        background-color: #2dbe60;
     }
     .navbar-inverse .navbar-brand {
         color: #fff;
     }
     .navbar-inverse {
-        border-color: #018865;
+        border-color: #2dbe60;
     }
     .container{
 
@@ -29,6 +29,20 @@
     .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
         background-color: #018865;
     }
+    .navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
+        color: #fff;
+        background-color: #018865 !important;
+    }
+    .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.open>a {
+        background-image: -webkit-linear-gradient(top,#018865 0,#018865 100%);
+        background-image: -o-linear-gradient(top,#018865 0,#018865 100%);
+        background-image: -webkit-gradient(linear,left top,left bottom,from(#018865),to(#018865));
+        background-image: linear-gradient(to bottom,#018865 0,#018865 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff080808', endColorstr='#ff0f0f0f', GradientType=0);
+        background-repeat: repeat-x;
+        -webkit-box-shadow: inset 0 3px 9px rgba(0,0,0,.25);
+        box-shadow: inset 0 3px 9px rgba(0,0,0,.25);
+    }
 </style>
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
@@ -39,15 +53,21 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand hidden-sm" href="/">管理后台</a>
+            <a class="navbar-brand hidden-sm" href="/">GeNu</a>
         </div>
         <div class="navbar-collapse collapse" role="navigation">
             <ul class="nav navbar-nav">
-                <li class="hidden-sm hidden-md"><a href="/teacher_manager">革奴</a></li>
-                <li><a href="/recommended_manager">Linux</a></li>
-                <li><a href="/order_manager">IOS</a></li>
-                <li><a href="/message_manager">ANDROID</a></li>
-                <li><a href="/stat">JAVA</a></li>
+                <li><a href="#">革奴</a></li>
+                <!--<li><a href="#">Linux</a></li>-->
+                <!--<li><a href="#">IOS</a></li>-->
+                <!--<li><a href="#">ANDROID</a></li>-->
+                <!--<li><a href="#">JAVA</a></li>-->
+                <li class="dropdown " index="demo">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-cubes"></i> 笔记&nbsp;<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/editor"><i class="fa fa-plus"></i> 增加新笔记</a></li>
+                    </ul>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right hidden-sm">
                 <li>

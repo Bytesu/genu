@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=1200">
     <% include ./components/meta.html %>
     <% include ./script/bootstrap.html %>
+    <% include ./script/fontawesome.html %>
     <% include ./script/jquery.tmpl.html %>
     <% include ./script/_G_.html %>
-    <title>首页</title>
+    <title>革奴</title>
 </head>
 <body>
 <%if(typeof(LOGIN) == 'undefined'){ %>
@@ -37,19 +38,7 @@
     <%-body -%>
 <%}%>
 <%if(typeof(LOGIN) == 'undefined'){ %>
-<footer class="footer ">
-    <div class="container">
-
-        <hr>
-        <div class="row footer-bottom">
-            <ul class="list-inline text-center">
-                <li>2015-09-07</li>
-                <li>Manager版权所有</li>
-            </ul>
-        </div>
-    </div>
-</footer>
-
+ <% include ./components/footer.html %>
 <%} %>
 
 </body>

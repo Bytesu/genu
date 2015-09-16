@@ -1,0 +1,45 @@
+<style>
+    ::selection {
+        background: #c9f2d0;
+    }
+</style>
+<div class="container">
+    <script language="javascript" type="text/javascript">
+        //初始化编辑器
+        function Editor() {
+            var ifr = document.getElementById("editor");
+            var doc = ifr.contentDocument || ifr.contentWindow.document; // W3C || IE
+            doc.designMode = "on";
+            doc.contentEditable = true;
+            doc.open();
+            doc.write('<html><head><style>body{margin:3px;word - wrap:break-word;word-break:break-all;} </style></head><body> GoodNessEditor </body></html>');
+            doc.close();
+
+        }
+        //Editor.prototype.setBold = function() {
+
+        //设置选定的文本为粗体/正常
+        Editor.prototype.setBold = function () {
+            alert('A');
+            var win = document.getElementById("editor").contentWindow;
+            win.document.execCommand("Bold", false, null);
+            win.focus();
+        }
+        Editor.prototype.save = function() {
+            var ifr = document.getElementById("editor");
+            var doc = ifr.contentDocument || ifr.contentWindow.document; // W3C || IE
+            alert(doc.body.innerHTML);
+        }
+    </script>
+    <p>
+        <input type="button" id="bBtn" value="B" style="font-weight:bold" onclick="Editor.prototype.setBold();"/>
+        <input class="btn btn-default btn-xs" type="button" id="save"  onclick="Editor.prototype.save();" value="保存"/>
+    </p>
+
+    <p>
+        <iframe id="editor" width="100%" height="400px" style="border:solid 1px;"></iframe>
+    </p>
+    <script type="text/javascript">
+        new Editor();
+    </script>
+</div>

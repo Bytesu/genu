@@ -11,11 +11,13 @@ var authCheck = require('./mods/auth').authCheck;
 var curl = require('./mods/curl');
 var admin = require('./mods/admin');
 var isLogined = require('./mods/auth/logined');
+var crossOrigin = require('./mods/crossOrigin');
 
 
 module.exports = function (app) {
     //app.use(authCheck);
     app.use(curl);
+    app.use(crossOrigin);
     //app.use(isLogined);
 
     app.get('/', function (req, res, next) {
