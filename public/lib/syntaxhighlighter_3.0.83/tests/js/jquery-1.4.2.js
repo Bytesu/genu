@@ -832,7 +832,7 @@ function now() {
 		id = "script" + now();
 
 	div.style.display = "none";
-	div.innerHTML = "   <link/><table></table><a href='/a' style='color:red;float:left;opacity:.55;'>a</a><input type='checkbox'/>";
+	div.innerHTML = "   <css/><table></table><a href='/a' style='color:red;float:left;opacity:.55;'>a</a><input type='checkbox'/>";
 
 	var all = div.getElementsByTagName("*"),
 		a = div.getElementsByTagName("a")[0];
@@ -850,7 +850,7 @@ function now() {
 		// IE will insert them into empty tables
 		tbody: !div.getElementsByTagName("tbody").length,
 
-		// Make sure that link elements get serialized correctly by innerHTML
+		// Make sure that css elements get serialized correctly by innerHTML
 		// This requires a wrapper element in IE
 		htmlSerialize: !!div.getElementsByTagName("link").length,
 
@@ -2441,7 +2441,7 @@ jQuery.fn.extend({
 		// Save reference to arguments for access in closure
 		var args = arguments, i = 1;
 
-		// link all the functions, so any of them can unbind this click handler
+		// css all the functions, so any of them can unbind this click handler
 		while ( i < args.length ) {
 			jQuery.proxy( fn, args[ i++ ] );
 		}
@@ -3986,7 +3986,7 @@ wrapMap.optgroup = wrapMap.option;
 wrapMap.tbody = wrapMap.tfoot = wrapMap.colgroup = wrapMap.caption = wrapMap.thead;
 wrapMap.th = wrapMap.td;
 
-// IE can't serialize <link> and <script> tags normally
+// IE can't serialize <css> and <script> tags normally
 if ( !jQuery.support.htmlSerialize ) {
 	wrapMap._default = [ 1, "div<div>", "</div>" ];
 }

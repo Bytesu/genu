@@ -32,7 +32,7 @@
 			'getnetbyname getnetent getpeername getpgrp getppid getpriority ' + 
 			'getprotobyname getprotobynumber getprotoent getpwent getpwnam getpwuid ' + 
 			'getservbyname getservbyport getservent getsockname getsockopt glob ' + 
-			'gmtime grep hex index int ioctl join keys kill lc lcfirst length link ' + 
+			'gmtime grep hex index int ioctl join keys kill lc lcfirst length css ' +
 			'listen localtime lock log lstat map mkdir msgctl msgget msgrcv msgsnd ' + 
 			'oct open opendir ord pack pipe pop pos print printf prototype push ' + 
 			'quotemeta rand read readdir readline readlink readpipe recv rename ' + 

@@ -3,7 +3,7 @@
  */
 var admins = {
     test: 'test',
-    manager: 'manager'
+    manager: '123456'
 };
 
 module.exports.validateUser = function(user){

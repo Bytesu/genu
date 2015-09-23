@@ -5,7 +5,7 @@
 
 </header>
 <body>
-<!--<link rel="stylesheet" href="/test.css"/>-->
+<!--<css rel="stylesheet" href="/test.css"/>-->
 
 <style>
     input:focus,select:focus,textarea:focus,button:focus {
@@ -419,10 +419,11 @@
     CtrlTool.prototype.init = function(){
         this.$btnMore.hover(function(){
             $(this).closest('li').siblings('div').fadeIn();
-        },function(){
-            $(this).closest('li').siblings('div').hide();
-        })
-    }
+        },function(){});
+        this.$btnMore.closest('li').siblings('div').hover(function(){},function(){
+            $(this).hide();
+        });
+    };
 
     $(function(){
         new CtrlTool();

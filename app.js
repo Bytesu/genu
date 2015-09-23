@@ -4,21 +4,39 @@
 
 'use strict';
 
-// Set default node environment to development
-process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-
 var express = require('express');
-var config = require('./config/environment');
-// Setup server
-var app = express();
-var server = require('http').createServer(app);
-require('./config/express')(app);
-require('./routes')(app);
+var config = require('./config');
+var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+var path = require('path');
+var session = require('cookie-session');
+var _ = require('lodash');
 
-// Start server
-server.listen(config.port, config.ip, function () {
-    console.log('Express server listening on %d, in %s mode', config.port, app.get('env'));
+var app = express();
+
+app.set('views', config.root + '/views');
+app.engine('html', require('ejs-mate'));
+app.set('view engine', 'html');
+app.locals._layoutFile = 'tmpl.html';
+app.locals._ = _;
+
+[].map.call(config.statics, function (static_) {
+    app.use(express.static(__dirname + static_));
 });
 
-// Expose app
-module.exports = app;
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+//app.use(methodOverride());
+app.use(cookieParser(config.cookie.secret));
+app.use(session(config.session));
+
+[].map.call(config.routers, function (r) {
+    app.use('/' + r, require('./controllers/' + r + '/'));
+});
+
+require('./mods/error')(app)
+
+// Start server
+app.listen(config.port, config.ip, function () {
+    console.log('Express serving, please access with: http://%s:%s', config.host, config.port);
+});
