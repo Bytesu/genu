@@ -5,5 +5,5 @@ var express = require('express');
 var Router = express.Router();
 var Post = require('./ctrl');
 var post_ = new Post();
-Router.get('/list',post_.list);
+Router.get('/list/:current',post_.list);
 module.exports = Router;

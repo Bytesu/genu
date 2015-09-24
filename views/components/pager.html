@@ -3,11 +3,10 @@
     <nav>
         <ul class="pagination">
             <%
-
             if(typeof(page)=='undefined'){
                 page = {
                     total:20,
-                    current:5,
+                    current:4,
                     url:'/post/list/',
                     getUrl:function(page_){
                         return page.url+page_;
@@ -15,14 +14,22 @@
                 }
             }
             page = _.merge({},{size:5},page||{});
-            if(page.current==1){
-            %>
-            <li class="disabled"><a href="<%=page.getUrl(page.current-1)%>" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+            page.prev = page.current>1?'':'disabled';
+            page.prevUrl = page.current>1?page.getUrl(page.current-1):'#';
 
-            <li class="<%=active%>"><a href="<%=page.getUrl(i)%>"><%=i%></a></li>
+            page.next = page.current< page.total? '':'disabled';
+            page.nextUrl = page.current< page.total?'#':page.getUrl(page.current+1);
+
+            %>
+            <li class="<%=page.prev %>"><a href="<%=page.prevUrl%>" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
             <%
+            page.max = Math.floor(page.current + page.size/2);
+            page.min = Math.ceil(page.current - page.size/2);
+            if(page.min<0){
+                page.max = page.max - page.min;
+
             }
-            for(var i = page.current-2;i<=(page.current+2);i++){
+            for(var i = page.min;i<=page.max;i++){
                 if(i>0&&i< page.total){
                     var active = i==page.current?'active':'';
                 %>
@@ -31,119 +38,7 @@
                 }
             }
             %>
+            <li class="<%=page.next %>" ><a href="<%=page.nextUrl %>" aria-label="Next"><span aria-hidden="true">»</span></a></li>
         </ul>
     </nav>
 </div>
-<!--<div class="bs-example" data-example-id="simple-pagination">-->
-
-    <!--<nav id="pagerSimple1">-->
-
-    <!--</nav>-->
-<!--</div>-->
-<!--<nav>-->
-    <!--<ul class="pager">-->
-        <!--<li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>-->
-        <!--<li class="next"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>-->
-    <!--</ul>-->
-<!--</nav>-->
-<!--<script>-->
-
-    <!--'use strict';-->
-    <!--(function ($) {-->
-        <!--$.fn.extend({-->
-            <!--/**-->
-             <!--* 分页-->
-             <!--* @param opt-->
-             <!--* @param cb-->
-             <!--* @returns {*}-->
-             <!--*/-->
-            <!--pager: function (opt) {-->
-                <!--var default_ = {-->
-                    <!--total: 30,-->
-                    <!--current: 1,//从1开始-->
-                    <!--click: function () {//每一页的点击事件-->
-                        <!--alert('当前页被点了！');-->
-                    <!--}-->
-                <!--};-->
-                <!--default_ = $.extend({}, default_, opt || {});-->
-                <!--var Pager = function (val, this_) {-->
-
-                    <!--this.$ele = $(this_);-->
-                    <!--this.pageItem = '<li><a href="#">1</a></li>';-->
-                    <!--this.prevItem = '<li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>';-->
-                    <!--this.nextItem = '<li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>';-->
-                    <!--this.init();-->
-                <!--};-->
-                <!--Pager.prototype.click = function () {-->
-<!--//                    alert();-->
-                    <!--this.clickEvent($(this).find('a').html())-->
-                <!--};-->
-                <!--Pager.prototype.clickEvent = function (next) {-->
-<!--//                    alert($(this).find('a').html());-->
-                    <!--alert(next);-->
-                <!--};-->
-                <!--Pager.prototype.init = function () {-->
-                    <!--var that = this;-->
-                    <!--var $ul = $('<ul>').addClass('pagination');-->
-                    <!--if(default_.current==1){-->
-                        <!--that.prevItem = $(that.prevItem).addClass('disabled');-->
-                    <!--}-->
-                    <!--$ul.append($(that.prevItem).click(function(){-->
-                        <!--var pagePrev = (default_.current-1);-->
-                        <!--if(pagePrev>0){-->
-                            <!--that.clickEvent(pagePrev);-->
-                        <!--}-->
-                    <!--}));-->
-                    <!--if(default_.current==default_.total)that.$ele.find("a[aria-label='Next']").closest('li').addClass('disabled');-->
-                    <!--default_.prev = default_.current - 2;-->
-                    <!--default_.next = default_.current + 2;-->
-<!--//                    if (default_.current > 7) {-->
-<!--//                        $ul.append($(that.nextItem).find('a').html(1).parent('li'));-->
-<!--//                        $ul.append($(that.nextItem).find('a').html('...').parent('li'));-->
-<!--//                    }-->
-                    <!--if (default_.prev < 1) {-->
-                        <!--default_.next += 2;-->
-                        <!--default_.prev = 1;-->
-                    <!--}-->
-                    <!--if (default_.next > default_.total) {-->
-                        <!--default_.prev -= (default_.next - default_.total);-->
-                        <!--default_.next = default_.total;-->
-                    <!--}-->
-                    <!--for (var i = default_.prev; i <= default_.next; i++) {-->
-                        <!--if (default_.current != i) {-->
-                            <!--$ul.append($(that.nextItem).find('a').html(i).parent('li').click(that.click));-->
-                        <!--} else {-->
-                            <!--$ul.append($(that.nextItem).addClass('active').find('a').html(i).parent('li').click(that.click));-->
-                        <!--}-->
-                    <!--}-->
-                    <!--if (default_.current > 7) {-->
-                    <!--}-->
-<!--//                    if (default_.total-default_.next > 0) {-->
-<!--//                        $ul.append($(that.nextItem).find('a').html('...').parent('li'));-->
-<!--//                        $ul.append($(that.nextItem).find('a').html(default_.total).parent('li'));-->
-<!--//                    }-->
-
-                    <!--if(default_.current==default_.total){-->
-                        <!--that.nextItem = $(that.nextItem).addClass('disabled');-->
-                    <!--}-->
-                    <!--$ul.append($(that.nextItem).click(function(){-->
-                        <!--var pageNext = (default_.current+1);-->
-                        <!--if(pageNext<=default_.total){-->
-                            <!--that.clickEvent(pageNext);-->
-                        <!--}-->
-                    <!--}));-->
-<!--//                    $ul.append(that.nextItem);-->
-                    <!--$ul.appendTo(that.$ele);-->
-                <!--};-->
-                <!--return this.each(function (idx, val) {-->
-                    <!--new Pager(val, this);-->
-                <!--});-->
-            <!--}-->
-        <!--});-->
-    <!--})(jQuery);-->
-
-    <!--$(function () {-->
-        <!--// example-->
-        <!--$('#pagerSimple1').pager({current: 29});-->
-    <!--});-->
-<!--</script>-->

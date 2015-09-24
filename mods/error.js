@@ -5,14 +5,14 @@
 
 var config = require('./../config');
 var path   = require('path');
-
 function Error_(app) {
     /**
      * 此处中间件可浏览器直接访问views后的文件名［不带后缀］
      */
     app.use(function (req, res, next) {
-        var path = req.originalUrl.substr(1);
-        return res.render(path);
+        if(new RegExp(config.pageRequestPrefix).test(req.originalUrl)){
+            return res.render(req.originalUrl.replace(new RegExp(config.pageRequestPrefix),''));
+        }
     });
 
     app.route('/*').get(function (req, res) {

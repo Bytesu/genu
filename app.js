@@ -34,7 +34,7 @@ app.use(session(config.session));
     app.use('/' + r, require('./controllers/' + r + '/'));
 });
 
-require('./mods/error')(app)
+require('./mods/error')(app);
 
 // Start server
 app.listen(config.port, config.ip, function () {
