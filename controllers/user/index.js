@@ -6,4 +6,6 @@ var Router = express.Router();
 var User = require('./ctrl');
 var user_ = new User();
 Router.route('/').delete(user_.delete).post(user_.create_).put(user_.update).get(user_.get);//用户删除、创建、更新、获取
+Router.route('/upload').post(user_.upload).get(user_.renderUpload);
+//Router.route('/renderUpload').post(user.renderUpload);
 module.exports = Router;

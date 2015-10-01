@@ -30,7 +30,7 @@ var config = {
         db: 'mongodb://127.0.0.1/node_gn_dev',
         opt: {server: {poolSize: 20}}
     },
-    pageRequestPrefix:'/p'
+    pageRequestPrefix:'/p/'
 
 };
 

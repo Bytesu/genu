@@ -11,6 +11,7 @@ var cookieParser = require('cookie-parser');
 var path = require('path');
 var session = require('cookie-session');
 var _ = require('lodash');
+var fs = require('fs');
 
 var app = express();
 
@@ -30,12 +31,16 @@ app.use(bodyParser.json());
 app.use(cookieParser(config.cookie.secret));
 app.use(session(config.session));
 
-[].map.call(config.routers, function (r) {
-    app.use('/' + r, require('./controllers/' + r + '/'));
+fs.readdir('./controllers',function(errs,files){
+    //console.log(errs)
+    //console.log(files);
+    [].map.call(files, function (r) {
+        if(r!='errs'){
+            app.use('/' + r, require('./controllers/' + r + '/'));
+        }
+    });
 });
-
 require('./mods/error')(app);
-
 // Start server
 app.listen(config.port, config.ip, function () {
     console.log('Express serving, please access with: http://%s:%s', config.host, config.port);
