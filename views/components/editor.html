@@ -14,21 +14,22 @@
             doc.open();
             doc.write('<html><head><style>body{margin:3px;word - wrap:break-word;word-break:break-all;border:0px} </style></head><body> GoodNessEditor </body></html>');
             doc.close();
-
         }
-        //Editor.prototype.setBold = function() {
 
         //设置选定的文本为粗体/正常
         Editor.prototype.setBold = function () {
-            alert('A');
             var win = document.getElementById("editor").contentWindow;
             win.document.execCommand("Bold", false, null);
             win.focus();
-        }
+        };
+
         Editor.prototype.save = function() {
-            var ifr = document.getElementById("editor");
-            var doc = ifr.contentDocument || ifr.contentWindow.document; // W3C || IE
-            alert(doc.body.innerHTML);
+            G.request({},function(res){
+
+            });
+//            var ifr = document.getElementById("editor");
+//            var doc = ifr.contentDocument || ifr.contentWindow.document; // W3C || IE
+//            alert(doc.body.innerHTML);
         }
     </script>
     <p>

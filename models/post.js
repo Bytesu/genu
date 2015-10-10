@@ -17,6 +17,7 @@ var PostSchema = new Schema({
     ctime: { type: Date},
     ctnt: {type: String},
     tags: { type: String },
+    reader:{type:Number},
     create_at: { type: Date, default: Date.now },
     update_at: { type: Date, default: Date.now }
 

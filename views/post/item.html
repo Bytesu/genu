@@ -1,9 +1,336 @@
+<style>
+    .list-byte{list-style: none;}
+    .fs12{font-size: 12px;}
+</style>
 <ul>
-    <% for(var i=0; i<posts.length;i++) {%>
-        <li>
-            <a href="#"><%= posts[i].title %></a>
-        </li>
-    <% } %>
+
+    <%
+        if(typeof posts!='undefined'&&_.isArray(posts)){
+            for(var i=0; i<posts.length;i++) {%>
+            <li>
+                <a href="#"><%= posts[i].title %></a>
+            </li>
+        <% }
+        }else{
+        %>
+        没有可选项
+        <%
+        }
+    %>
 </ul>
 
+<ul class="list-byte">
+    <li>
+        <div>
+            <a href="#">一批经济新规今施行 手机套餐流量当月“不清零”</a>
+            <p class="fs12">
+                <span>时间：2015-10-01</span><span>作者：苏伟明</span>
+            </p>
+        </div>
+    </li>
+</ul>
+<style>
+    .feeds-item {
+        font-size: 12px;
+        border-top: 1px solid #eaecef;
+        position: relative;
+        padding: 20px 0;
+        *zoom: 1
+    }
 
+    .feeds-item:first-child {
+        border-top: 0
+    }
+
+    .feeds-item h3 {
+        margin-bottom: 5px;    margin-top: 0px;
+    }
+
+    .feeds-item h3 a {
+        font: 20px/29px "微软雅黑";
+        color: #262627;
+        font-weight: 800
+    }
+
+    .feeds-item h3 a:hover {
+        color: #e05a5a;
+        text-decoration: none
+    }
+
+    .feeds-item .feeds-item-pic {
+        position: absolute;
+        left: 0;
+        width: 200px;
+        height: 120px;
+        top: 20px
+    }
+
+    .feeds-item .feeds-item-pic a {
+        display: block;
+        height: 100%;
+        overflow: hidden
+    }
+
+    .feeds-item .feeds-item-pic img {
+        width: 100%
+    }
+
+    .feeds-item .feeds-item-text,.feeds-item .feeds-item-text1 {
+        height: 48px;
+        color: #606a77;
+        font-size: 16px;
+        line-height: 24px;
+        overflow: hidden
+    }
+
+    .feeds-item .feeds-item-info {
+        line-height: 22px;
+        color: #999;
+        overflow: hidden;
+        width: 100%;
+        margin-top: 13px
+    }
+
+    .feeds-item .feeds-item-info .feeds-item-author,.feeds-item .feeds-item-info .tm,.feeds-item .feeds-item-info .count,.feeds-item .feeds-item-info .share-article {
+        margin-right: 10px;
+        display: inline-block;
+        *display: inline;
+        *zoom: 1
+    }
+
+    .feeds-item .feeds-item-info .share-article {
+        color: #999
+    }
+
+    .feeds-item .feeds-item-info .share-article:hover {
+        color: #999;
+        text-decoration: none
+    }
+
+    .feeds-item .feeds-item-info .feeds-item-author {
+        color: #666
+    }
+
+    .feeds-item .feeds-item-info .feeds-item-author:hover {
+        color: #ccc;
+        text-decoration: none
+    }
+
+    .feeds-item .feeds-item-info .labels {
+        float: right;
+        margin-right: -1px;
+        margin-right: -3px\9
+    }
+
+    .feeds-item-info .label {
+        padding: 0 1px;
+        display: inline-block;
+        height: 20px;
+        _overflow: hidden;
+        line-height: 20px;
+        vertical-align: top
+    }
+
+    .feeds-item-info .label .labelnm {
+        color: #999;
+        margin: 0 2px 0 0;
+        _height: 18px;
+        _line-height: 18px;
+        _display: inline;
+        _zoom: 1
+    }
+
+    .feeds-item-info .labelnm:hover {
+        color: #e05a5a;
+        text-decoration: none
+    }
+
+    .feeds-item .feeds-item-info .public-v {
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        margin-right: 10px;
+        vertical-align: middle;
+        margin-left: -7px
+    }
+
+    .feeds-item-time {
+        position: absolute;
+        right: 0;
+        top: 27px;
+        _right: 20px
+    }
+
+    .hasImg {
+        padding-left: 220px;
+        min-height: 138px;
+        _height: 138px
+    }
+
+    .hasImg .feeds-item-info {
+        width: 610px
+    }
+
+    .hasImg .feeds-item-text,.hasImg .feeds-item-text1 {
+        overflow: hidden
+    }
+
+    .feeds-item .feeds-item-info .share-article .ishare {
+        background: url(/static/home/widget/feed/images/share_4de6745.png);
+        background-size: 25px;
+        background: url(/static/home/widget/feed/images/share_ie_908b839.png)\9;
+        width: 16px;
+        height: 14px;
+        margin-right: 3px
+    }
+</style>
+<div class="feeds-item notb hasImg" id="item-183425">
+    <p class="feeds-item-pic"><a href="http://itfatiao.baijia.baidu.com/article/183425" target="_blank" mon="col=13&amp;pn=1&amp;a=12"><img src="http://g.hiphotos.baidu.com/news/crop%3D0%2C2%2C763%2C458%3Bw%3D638/sign=4f27addd9e22720e6f81b8ba46fb2674/d4628535e5dde711d63f4b49a1efce1b9c16619b.jpg"></a></p>
+    <h3>
+        <a href="http://itfatiao.baijia.baidu.com/article/183425" target="_blank" mon="col=13&amp;pn=1">你知道吗:五分之一的地球人都有安卓手机</a>
+    </h3>
+    <p class="feeds-item-text1">苹果用户的增长势头很猛，然而安卓手机依旧是地球上适用人群最多的智能手机...</p>
+    <div class="feeds-item-info">
+        <p class="labels">
+        </p>
+        <a href="http://itfatiao.baijia.baidu.com/" class="feeds-item-author" target="_blank">IT发条</a>
+        <span class="tm">15:03</span>
+        <span class="count">阅读（18）</span>
+        <a href="javascript:;" class="share-article"><i class="i ishare"></i>分享<dl class="changeshare"><dd class="sina"></dd><dd class="qzone"></dd><dd class="wechat"></dd></dl></a></div>
+</div>
+
+<style>
+    .article{ margin-top:20px; margin-bottom:20px; padding-bottom:20px; overflow:hidden; border-bottom:1px dashed #ddd;}
+    .article_left{ float:left; width:180px; overflow:hidden; margin-top:5px;}
+    .article_left img{ width:180px; height:120px;}
+    .article_right{ float:left; width:462px; margin-left:18px; overflow:hidden;}
+    .article_title{ height:30px; line-height:30px; overflow:hidden; padding:0; margin:0}
+    .article_title a{display:block; height:30px; line-height:30px; font-size:18px; padding:0 5px; font-weight:bold;}
+    .article_title a:hover{ color:#2D6192;}
+    .article_brief{ margin-top:0px; margin-left:5px; color:#777; font-size:14px; line-height:22px; height:44px; overflow:hidden;}
+    .article_meta{ margin-left:5px; font-size:14px;}
+    .article_author{ float:left; font-weight:bold; color:#333; font-size:14px; margin-top:20px; }
+    .article_author a:hover{ color:#2D6192;}
+    .article_date{float:left; font-size:14px; margin-left:10px; margin-right:10px; margin-top:20px; }
+    .article_tag{ float:left; text-decoration:none;}
+    a.article_tag_item{ float:left; display:block; margin-top:20px; font-size:14px; padding:0 4px; margin-right:4px; border:0; color:#333;}
+    a.article_tag_item:hover{}
+
+</style>
+<div class="article">
+
+    <div class="article_left"><a href="/p/21150" target="_blank" title="互联网家装平台优家帮宣布获得数百万人民币天使轮融资"><img src="http://img3.iyiou.com/Cover/2015-09-30/hangye-jiaju68.jpg" alt="互联网家装,o2o"></a></div>
+
+    <div class="article_right">
+
+        <h1 class="article_title"><a href="/p/21150" target="_blank" title="互联网家装平台优家帮宣布获得数百万人民币天使轮融资">互联网家装平台优家帮宣布获得数百万人民币天使轮融资</a></h1>
+
+        <p class="article_brief">亿欧网9月30日晚间消息，优家帮目前已完成数百万人民币天使轮融资，具体投资方跟投资金额优家帮这一块并未透漏。据透漏，此次融资主要用于：苏州地区线下体验中心的建立和线上APP的开发，完善用户管理和服务体系。</p>
+
+        <div class="article_meta">
+
+            <div class="article_author"><a href="/author/鲁红卫" target="_blank" title="鲁红卫">鲁红卫</a></div>
+
+            <div class="article_date">昨天 23:52</div>
+
+            <div class="article_tag"><a href="/t/online-offline" target="_blank" title="线上线下" class="article_tag_item">线上线下</a><a href="/t/jiazhuango2o" target="_blank" title="家装O2O" class="article_tag_item">家装O2O</a><a href="/t/rongzi" target="_blank" title="融资" class="article_tag_item">融资</a><a href="/t/youjiabang" target="_blank" title="优家帮" class="article_tag_item">优家帮</a></div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<style>
+    .block--inset {
+        background-color:#ffffff;
+        overflow:hidden;
+        margin-bottom:31px;
+    }
+    .block--inset:before {
+        content:"";
+        display:block;
+        height:2px;
+        background-color:#f4645f;
+        transform:scaleX(0);
+        transition:0.5s
+    }
+    .block--inset:hover:before {
+        transform:scaleX(1);
+    }
+    .block--inset .block-content {
+        padding:12px 20px 12px 12px;
+    }
+    .block--inset .block---image {
+        width:240px;
+        height:160px;
+    }
+    .block--inset .block---text {
+        margin-left:260px;
+    }
+    .block--inset .block---text .block---title {
+        font-size:20px;
+        color:#474747;
+        margin:10px 0;
+        line-height:1.5;
+    }
+    .block--inset .block---text .block---title a {
+        color:#474747;
+        text-decoration:none;
+        overflow:hidden;
+    }
+    .block--inset:hover .block---text .block---title a {
+        color:#f4645f;
+    }
+    .block--inset .article-right-text {
+        font-size:14px;
+        color:#777;
+    }
+    .postMetaInline-footerLockup:before {
+        display:block;
+        content:"";
+        height:1px;
+        background-color:rgba(0,0,0,0.1);
+        left:0;
+        right:0;
+        top:0;
+        position:absolute
+    }
+    .postMetaInline-footerLockup {
+        padding:18px 10px;
+        line-height:20px;
+        position:relative
+    }
+    .postMetaInline {
+        color:rgba(0,0,0,0.3);
+        font-size:12px;
+    }
+    .postMetaViews:before {
+        content:"-";
+        margin:0 5px
+    }
+    @media screen and (max-width:860px) {
+        .block--inset .block---image {
+            display:none
+        }
+        .block--inset .block---text {
+            margin-left:0;
+        }
+    }
+
+</style>
+<article class="block--inset" itemtype="http://schema.org/Article" itemscope="itemscope">
+    <div class="block-content block-with-image v-clearfix">
+        <a class="block---image v-floatLeft" href="http://www.niubua.com/?p=1628">
+            <img width="240" height="160" src="http://www.niubua.com/wp-content/themes/v1/timthumb.php?w=240&amp;h=160&amp;src=http://www.niubua.com/wp-content/uploads/2015/03/thumb3.jpg" alt="跟我一起数据挖掘（23）——C4.5">        </a>
+        <div class="block---text">
+            <h2 class="block---title" itemprop="headline">
+                <a href="http://www.niubua.com/?p=1628">跟我一起数据挖掘（23）——C4.5</a>
+            </h2>
+            <div class="article-right-text" itemprop="description">C4.5简介  C4.5是一系列用在机器学习和数据挖掘的分类问题中的算法。它的目标是监督学习：给定一个数据集，其中的每一个元组都能用一组属性值来描述，每一个元组属于一个互斥的类别中的某一类。C4.5的目标是通过...</div>
+        </div>
+    </div>
+    <div class="postMetaInline-footerLockup">
+        <span class="postMetaInline" itemprop="datePublished">三 31, 2015</span><span class="postMetaInline postMetaViews">847 reads</span>
+    </div>
+</article>

@@ -30,8 +30,16 @@ var config = {
         db: 'mongodb://127.0.0.1/node_gn_dev',
         opt: {server: {poolSize: 20}}
     },
-    pageRequestPrefix:'/p/'
+    pageRequestPrefix: '/p/'
 
-};
-
-module.exports = config;
+}, config_;
+if (process.env.NODE_ENV=='production') {
+    config_ = _.merge({}, config, {
+        mongos: {
+            db: 'mongodb://127.0.0.1/node_gn_pro'
+        }
+    })
+}
+var util = require('util');
+console.log(util.inspect(config_));
+module.exports = config_?config_:config;

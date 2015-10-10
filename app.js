@@ -27,13 +27,15 @@ app.locals._ = _;
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-//app.use(methodOverride());
+
+//app.use(require('csurf')({cookie:true}));
+
+app.all('*', require('compression')()); //gzip压缩模块
 app.use(cookieParser(config.cookie.secret));
+
 app.use(session(config.session));
 
 fs.readdir('./controllers',function(errs,files){
-    //console.log(errs)
-    //console.log(files);
     [].map.call(files, function (r) {
         if(r!='errs'){
             app.use('/' + r, require('./controllers/' + r + '/'));

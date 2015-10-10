@@ -11,8 +11,13 @@ function Error_(app) {
      */
     app.use(function (req, res, next) {
         if(new RegExp(config.pageRequestPrefix).test(req.originalUrl)){
-
+            var util = require('util');
+            console.log(util.inspect(req.url));
             return res.render(req.originalUrl.replace(new RegExp(config.pageRequestPrefix),''));
+        }else if(req.originalUrl=='/'){
+            res.render('index');
+        }else{
+            next();
         }
     });
 
@@ -25,5 +30,4 @@ function Error_(app) {
         res.status(500).send({status: 500, error: err.message || err});
     });
 }
-
 module.exports = Error_;

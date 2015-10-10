@@ -7,7 +7,7 @@ var headers = {
     "term_id": "_ADMIN_",
     "Cache-Control": "no-cache, no-store, must-revalidate"
 };
-var apiUrl = "http://api.test.xueyuanpai.com/v1/";
+var apiUrl = "http://";
 $.ajaxSetup({
     headers: headers,
     //timeout : 5000,
