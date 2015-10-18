@@ -14,7 +14,14 @@ mongoose.connect(config.mongos.db, config.mongos.opt, function (err) {
 // models
 require('./user');
 require('./post');
+require('./Menu');
+require('./Cost');
+require('./Orders');
 
 exports.User         = mongoose.model('User');
 exports.Post         = mongoose.model('Post');
+//苏家小馆
+exports.Cost         = mongoose.model('Cost');
+exports.Menu         = mongoose.model('Menu');
+exports.Orders         = mongoose.model('Orders');
 

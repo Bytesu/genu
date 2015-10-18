@@ -24,6 +24,7 @@
     "underscore": "~1.8.3",
     "fontawesome": "~4.4.0",
     "SyntaxHighlighter": "~3.0.83",
-    "editor": "lepture/editor#~0.1.0"
+    "editor": "lepture/editor#~0.1.0",
+    "icheck": "~1.0.2"
   }
 }

@@ -27,7 +27,7 @@ var config = {
         saveUninitialized: true
     },
     mongos: {
-        db: 'mongodb://127.0.0.1/node_gn_dev',
+        db: 'mongodb://127.0.0.1/node_resturant_dev',
         opt: {server: {poolSize: 20}}
     },
     pageRequestPrefix: '/p/'
@@ -36,7 +36,7 @@ var config = {
 if (process.env.NODE_ENV=='production') {
     config_ = _.merge({}, config, {
         mongos: {
-            db: 'mongodb://127.0.0.1/node_gn_pro'
+            db: 'mongodb://127.0.0.1/node_resturant_pro'
         }
     })
 }

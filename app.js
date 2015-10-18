@@ -18,7 +18,7 @@ var app = express();
 app.set('views', config.root + '/views');
 app.engine('html', require('ejs-mate'));
 app.set('view engine', 'html');
-app.locals._layoutFile = 'tmpl.html';
+//app.locals._layoutFile = 'tmpl.html';
 app.locals._ = _;
 
 [].map.call(config.statics, function (static_) {
