@@ -11,7 +11,9 @@ var Cost = require('./Cost');
 var Menu = require('./Menu');
 var Orders = require('./Orders');
 var menu = new Menu();
+var orders = new Orders();
 //Router.route('/').delete(user_.delete).post(user_.create_).put(user_.update).get(user_.get);//用户删除、创建、更新、获取
-Router.route('/menu').post(menu.index).get(menu.get);
+Router.get('/',menu.render);
+Router.post('/orders',orders.save);
 //Router.route('/renderUpload').post(user.renderUpload);
 module.exports = Router;

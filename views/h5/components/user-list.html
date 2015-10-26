@@ -1,0 +1,99 @@
+<style>
+    /*.grid-left{width:100%;}*/
+    .g_title_img_ctner {
+        float: left;
+        margin-top: 6px;
+        border-radius: 27px;
+        overflow: hidden;
+    }
+
+    .g_header_ctner {
+        float: left;
+        margin-top: 6px;
+        border-radius: 34px;
+        overflow: hidden;
+        border: 2px solid #e1e2e3;
+    }
+
+    .g_float_text {
+        display: inline-block;
+        line-height: 60px;
+        height: 60px;
+    }
+    .dashed-left{
+        width: 74%;
+        display: inline-block;
+        border-bottom: 3px dashed #eeeeee;
+        height: 10px;
+    }
+
+    .show-all{
+        background: #f4f6f7;
+        border: 2px solid #eeeeee;
+        display: inline-block;
+        padding: 5px;
+        border-radius: 6px;
+        color: #888888;
+    }
+    .class-show-all{
+        height: 80px;
+        overflow: hidden;
+    }
+</style>
+<section class="g_title margin-top-20">
+    <div class="g_title_img_ctner">
+        <img src="/h5/join.gif" alt="">
+    </div>
+    <div class="g_float_text" style=""> 已经有23人参与</div>
+</section>
+
+<section class="g_style border-top" style="    padding: 5px 15px;">
+    <div class="g_clear_float opt-show-all class-show-all">
+
+        <div class="g_header_ctner"><img src="/h5/header.gif" alt=""></div>
+        <div class="g_header_ctner"><img src="/h5/header.gif" alt=""></div>
+        <div class="g_header_ctner"><img src="/h5/header.gif" alt=""></div>
+        <div class="g_header_ctner">
+            <img src="/h5/header.gif" alt="">
+        </div>
+        <div class="g_header_ctner">
+            <img src="/h5/header.gif" alt="">
+        </div>
+        <div class="g_header_ctner">
+            <img src="/h5/header.gif" alt="">
+        </div>
+        <div class="g_header_ctner">
+            <img src="/h5/header.gif" alt="">
+        </div>
+        <div class="g_header_ctner">
+            <img src="/h5/header.gif" alt="">
+        </div>
+        <div class="g_header_ctner">
+            <img src="/h5/header.gif" alt="">
+        </div>
+        <div class="clear"></div>
+
+    </div>
+    <DIV>
+        <div class="dashed-left"></div>
+        <div class="show-all btn-show-all">
+            <span>查看全部</span>
+        </div>
+    </DIV>
+</section>
+<script>
+    function init (){
+        this.showAll_ = function(){
+            $('.btn-show-all').click(function(){
+                $('.opt-show-all').toggleClass('class-show-all');
+            });
+        }
+    };
+    function showAll(){
+        init.apply(this,{});
+        this.showAll_();
+    }
+    $(function(){
+        new showAll();
+    });
+</script>

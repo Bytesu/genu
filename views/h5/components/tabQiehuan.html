@@ -1,0 +1,19 @@
+<script>
+    function Tab(){
+        this.$tab = $('.tab-good-service');
+        this.init();
+    }
+    Tab.prototype.init = function(){
+        this.$tab.find('.grid').click(function(){
+            $(this).siblings('.grid').find('.show-tab').removeClass('active');
+
+            $(this).find('.show-tab').addClass('active');
+            $('.tab-active').addClass('hide');
+            $('.tab-active-'+ $(this).data('class')).removeClass('hide');
+        });
+    };
+
+    $(function(){
+        new Tab;
+    });
+</script>

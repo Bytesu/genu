@@ -3,21 +3,23 @@
     order_detail:{
         no_1:{
             name:String,    //名称
+            _id:ObjectId,   //菜品ID
             num:Number,     //数量
             price:Float,    //单价
-            category:Number //菜品分类
+            parentId:ObjectId//菜品分类ID
         },
         ...
         no_n:{
             name:String,    //名称
+            _id:ObjectId,   //菜品ID
             num:Number,     //数量
             price:Float,    //单价
-            category:Number //菜品分类
+            parentId:ObjectId//菜品分类ID
         },
     },
     quantity:Number,        //菜品数量
-    num:Number,             //用餐人数
     should:Float,           //应收
+    time:Float,           //下单时间
     actual:Float,           //实收
 }
 

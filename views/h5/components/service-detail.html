@@ -1,0 +1,38 @@
+<style>
+    .grid .show-tab{
+        text-align: center;
+        line-height: 60px;
+        height: 60px;
+        font-size: 18px;
+        color: #303030;
+    }
+    .grid .active{
+        text-align: center;
+        line-height: 60px;
+        height: 60px;
+        font-size: 18px;
+        color: #ff66bf;
+        border-bottom: 2px solid #ff66bf;
+    }
+    .tab-service .g_title_img_ctner {
+        position: absolute;
+    }
+    .tab-service .grid{
+        width: 40%;
+    }
+</style>
+<section class="g_title margin-top-20 tab-service">
+    <!--<div class="g_title_img_ctner">-->
+        <!--<img src="/h5/t2.jpg" alt="">-->
+    <!--</div>-->
+    <div>
+        <div class="grid-left grid" style="margin: 0px 5% 0 5%;">
+            <div class="title show-tab active">服务详情</div>
+        </div>
+        <div class="grid-right grid" style="margin: 0px 5% 0 5%;">
+            <div class="title show-tab">用户点评</div>
+        </div>
+    </div>
+</section>
+<% include ./introduce.html %>
+

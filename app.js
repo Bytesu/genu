@@ -34,10 +34,19 @@ app.all('*', require('compression')()); //gzip压缩模块
 app.use(cookieParser(config.cookie.secret));
 
 app.use(session(config.session));
+app.use(function(req,res,next){
+    console.log(req.originalUrl);
+    next();
+});
+app.use('/resturant/', require('./controllers/resturant/'));
+
 
 fs.readdir('./controllers',function(errs,files){
+    //
     [].map.call(files, function (r) {
         if(r!='errs'){
+            console.log('RRRR:'+r);
+
             app.use('/' + r, require('./controllers/' + r + '/'));
         }
     });

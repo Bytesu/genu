@@ -1,0 +1,37 @@
+<!--h5导航页面 开始-->
+<style>
+    .g_title{ padding: 0 15px;
+        height: 60px;
+        background: #fafafa;}
+    .grid{
+        height: 60px;display: inline-block;
+        width: 49%;float:left;;
+    }
+    .grid span{font-size: 12px;
+        font-weight: normal;}
+    .grid .title{
+        font-size: 18px;
+        font-weight: bolder;
+        line-height: 30px;
+        height: 30px;
+    }
+    .text-through-line{
+        text-decoration: line-through;
+    }
+
+</style>
+<section class="g_title">
+    <div>
+        <div class="grid-left grid" style="width: 100%;">
+            <div class="title">一米阳光摄影机构</div>
+            <p>
+                <p class="g_fs12 title inline-block" style="font-weight: normal;font-size: 12px;">评分:</p>
+                <% include ./star.html %>
+                <p class="g_fs12 inline-block">
+                    人均: ¥ <span class="txt-ff5394">122</span> 元
+                </p>
+            </p>
+        </div>
+    </div>
+</section>
+<!--h5导航页面 结束-->

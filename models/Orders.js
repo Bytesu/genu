@@ -37,13 +37,14 @@ var _            = require('lodash');
 var OrderSchema = new Schema({
     order_detail:[{
             name:String,    //名称
+            _id:Schema.Types.ObjectId,    //菜品ID
             num:Number,     //数量
             price:Number,    //单价
-            category:String //菜品分类
+            parentId:Schema.Types.ObjectId //菜品分类ID
         }],
     quantity: { type: Number},
-    should: { type: Number},
     time:{type:Date,default:Date.now},
+    should: { type: Number},
     actual: { type: Number}
 });
 
@@ -53,4 +54,4 @@ var OrderSchema = new Schema({
 //UserSchema.index({email: 1}, {unique: true});
 //UserSchema.index({accessToken: 1});
 
-mongoose.model('Order', OrderSchema);
+mongoose.model('Orders', OrderSchema);

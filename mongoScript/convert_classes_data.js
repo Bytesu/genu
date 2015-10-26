@@ -2,27 +2,115 @@
  * Created by Jacky on 15/8/11.
  */
 
-var db = connect("localhost:27017/xueyuanpai");
-var cursor = db.user.find({role:'teacher','classes.teach_type':{$exists:true},classes:{$exists:true}});
+var db = connect("localhost:27017/node_resturant_dev");
+var menu = {
+    "盖浇饭": {
+        "西红柿鸡蛋": 7,
+        "土豆丝": 7,
+        "麻辣豆腐": 7,
+        "红烧茄子": 7,
+        "尖椒鸡蛋": 8,
+        "鱼香茄子": 8,
+        "鱼香肉丝": 12,
+        "宫保鸡丁": 12,
+        "红烧鸡块": 12,
+        "小炒猪肝": 12
+    },
+    "干锅类": {
+        "干锅土豆片": 14,
+        "干锅蛙蛙": 14,
+        "干锅有机花菜": 14,
+        "干锅千页豆腐": 14,
+        "干锅肥肠": 24,
+        "干锅鸡杂": 20
+    },
+    "热菜": {
+        "老醋白菜": 10,
+        "酸辣土豆丝": 10,
+        "麻辣豆腐": 10,
+        "炝炒油麦菜": 10,
+        "线椒鸡蛋": 10,
+        "葱香地瓜": 12,
+        "虾米茼蒿": 12,
+        "红烧日本豆腐": 12,
+        "线豆烧茄子": 14,
+        "鱼香茄子": 14,
+        "老厨鸭血": 14,
+        "合菜小炒": 14,
+        "小炒肉爆花菇": 16,
+        "鱼香肉丝": 20,
+        "宫爆鸡丁": 20,
+        "辣椒炒肉": 20,
+        "糖醋里脊": 20,
+        "泡椒鱼杂": 22,
+        "浇汁茄盒": 22,
+        "小炒猪肝": 22,
+        "酸菜鱼": 30,
+        "回味辣子鸡": 28
+    },
+    "特色菜": {
+        "特味茄子": 16,
+        "香辣鱿鱼丝": 26,
+        "麻辣鱼头": 28,
+        "地瓜排骨": 28,
+        "酸汤鱼": 30,
+        "毛血旺": 30,
+        "农家压锅菜": 30,
+        "松鼠鱼": 32,
+        "糖醋鱼": 32,
+        "火锅鸡": 38,
+        "香辣美容蹄": 38,
+        "神仙鸡": 46
+    },
 
-while(cursor.hasNext()){
-    var t = cursor.next();
-    printjson(t);
-    if(Object.prototype.toString.call(t.classes) === '[object Array]' && t.classes.length > 0) {
-        printjson(t.classes);
-        t.classes.forEach(function (cla) {
-            cla.type = [];
-            cla.teach_type.forEach(function (t) {
-                cla.type.push({
-                    name: t,
-                    price: cla.price
-                });
-            });
-            delete cla.price;
-            delete cla.teach_type;
-        });
+    "凉菜类": {
+        "香油豆腐": 6,
+        "香菜木耳": 6,
+        "捞汁西湖丝": 6,
+        "香葱豆腐": 6,
+        "新派拍黄瓜": 6,
+        "凉拌面筋": 8,
+        "凉拌豆角": 8,
+        "拌豆腐丝": 8,
+        "麻酱拉皮": 10,
+        "酱汁变蛋": 10,
+        "鸡丝乔面": 10,
+        "蒜泥白肉": 16,
+        "夫妻肺片": 20
+    },
 
-        printjson(t.classes);
-        db.user.save(t);
+    "主食": {
+        "鸡块焖面": 8,
+        "酸汤面": 8,
+        "酸辣粉": 8,
+        "手工水饺": 16
+    },
+    "汤类": {
+        "紫菜鸡蛋汤": 8,
+        "玉米羹": 8,
+        "西湖牛肉羹": 10,
+        "开胃小鱼汤": 12
     }
+};
+
+var tset = {
+    "特味茄子": 16,
+    "香辣鱿鱼丝": 26,
+    "麻辣鱼头": 28,
+    "地瓜排骨": 28,
+    "酸汤鱼": 30,
+    "毛血旺": 30,
+    "农家压锅菜": 30,
+    "松鼠鱼": 32,
+    "糖醋鱼": 32,
+    "火锅鸡": 38,
+    "香辣美容蹄": 38,
+    "神仙鸡": 46
+};
+for (var propty in tset) {
+    //if(typeof tset[propty] == 'object'){
+    //    db.menus.save({name: propty});
+    //}
+    printjson(db.menus.save({name: propty,parentId:'5623b733b602cf2619335171',price:tset[propty]}));
 }
+//db.close();

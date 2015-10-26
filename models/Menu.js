@@ -13,9 +13,9 @@ var utility      = require('utility');
 var _            = require('lodash');
 
 var MenuSchema = new Schema({
-    name: { type: String},
-    price: { type: Number},
-    parentId: { type: ObjectId}
+    name: { type: String,required:true},
+    price: { type: Number,default:0},
+    parentId: { type: Schema.Types.ObjectId,default:null}
 });
 
 //UserSchema.plugin(BaseModel);

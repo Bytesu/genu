@@ -27,6 +27,7 @@ var CostSchema = new Schema({
     total: { type: Number}
 });
 
+
 //UserSchema.plugin(BaseModel);
 
 //UserSchema.index({loginname: 1}, {unique: true});

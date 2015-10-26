@@ -3,11 +3,12 @@
  * Created by bytesu on 15/9/23.
  */
 var Res = {};
-Res._200Good = function(res,msg){
-    res.status(200).send(msg||{code:200,msg:'OK'});
+var _ = require('lodash');
+Res._200Good = function(res,data){
+    res.status(200).send({code:200,msg:'OK',data:data});
 };
 Res._200Bad = function(res,msg){
     console.log(msg);
-    res.status(200).send(msg||{code:200,msg:'200 Bad !'});
+    res.status(200).send(_.merge({code:201,msg:'200 Bad !'},{msg:msg}));
 };
 module.exports = Res;

@@ -41,7 +41,7 @@ build:
 	@./node_modules/loader/bin/build views .
 
 run:
-	@node app.js
+	@node --harmony app.js
 
 start: install build
 	@NODE_ENV=production nohup ./node_modules/.bin/pm2 start app.js -i 0 --name "cnode" --max-memory-restart 400M >> cnode.log 2>&1 &
