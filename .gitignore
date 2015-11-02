@@ -5,5 +5,4 @@ node_modules
 .idea
 .editorconfig
 #dist
-test
 bower_components
